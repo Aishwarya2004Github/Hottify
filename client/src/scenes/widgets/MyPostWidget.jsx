@@ -41,7 +41,7 @@ const MyPostWidget = ({ picturePath }) => {
       formData.append("picturePath", image.name);
     }
     try {
-      const response = await fetch(`https://hottify.onrender.composts`, {
+      const response = await fetch(`https://hottify.onrender.com/posts`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

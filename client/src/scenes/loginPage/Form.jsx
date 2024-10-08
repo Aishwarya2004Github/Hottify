@@ -19,16 +19,16 @@ import FlexBetween from "../../components/FlexBetween"; // Adjust this path if n
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
   lastName: yup.string().required("Last name is required"),
-  email: yup.string().email("invalid email").required("required"),
-  password: yup.string().required("required"),
-  location: yup.string().required("required"),
-  occupation: yup.string().required("required"),
-  picture: yup.mixed().required("required"),
+  email: yup.string().email("Invalid email").required("Required"),
+  password: yup.string().required("Required"),
+  location: yup.string().required("Required"),
+  occupation: yup.string().required("Required"),
+  picture: yup.mixed().required("Required"),
 });
 
 const loginSchema = yup.object().shape({
-  email: yup.string().email("invalid email").required("required"),
-  password: yup.string().required("required"),
+  email: yup.string().email("Invalid email").required("Required"),
+  password: yup.string().required("Required"),
 });
 
 const initialValuesRegister = {
@@ -62,13 +62,10 @@ const Form = () => {
     }
     formData.append("picturePath", values.picture.name);
 
-    const savedUserResponse = await fetch(
-      "https://hottify.onrender.comauth/register",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    const savedUserResponse = await fetch("https://hottify.onrender.com/auth/register", {
+      method: "POST",
+      body: formData,
+    });
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
 
@@ -78,7 +75,7 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("https://hottify.onrender.comauth/login", {
+    const loggedInResponse = await fetch("https://hottify.onrender.com/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -97,8 +94,6 @@ const Form = () => {
   };
 
   return (
-    
-  
     <Formik
       initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
       validationSchema={isLogin ? loginSchema : registerSchema}
@@ -126,11 +121,10 @@ const Form = () => {
               boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
               "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
             }}
-          
           >
             {isRegister && (
               <>
-               <TextField
+                <TextField
                   label="First Name"
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -139,11 +133,12 @@ const Form = () => {
                   autoComplete="off"
                   error={Boolean(touched.firstName && errors.firstName)}
                   helperText={touched.firstName && errors.firstName}
-                  sx={{ gridColumn: "span 2",
+                  sx={{
+                    gridColumn: "span 2",
                     "& input": { color: palette.text.primary },
                     "& fieldset": { borderColor: palette.divider },
                     "& .MuiInputLabel-root": { color: palette.text.secondary },
-                   }}
+                  }}
                 />
                 <TextField
                   label="Last Name"
@@ -154,11 +149,12 @@ const Form = () => {
                   autoComplete="off"
                   error={Boolean(touched.lastName && errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
-                  sx={{ gridColumn: "span 2",
+                  sx={{
+                    gridColumn: "span 2",
                     "& input": { color: palette.text.primary },
                     "& fieldset": { borderColor: palette.divider },
                     "& .MuiInputLabel-root": { color: palette.text.secondary },
-                   }}
+                  }}
                 />
                 <TextField
                   label="Location"
@@ -168,7 +164,8 @@ const Form = () => {
                   name="location"
                   error={Boolean(touched.location) && Boolean(errors.location)}
                   helperText={touched.location && errors.location}
-                  sx={{ gridColumn: "span 4" ,
+                  sx={{
+                    gridColumn: "span 4",
                     "& input": { color: palette.text.primary },
                     "& fieldset": { borderColor: palette.divider },
                     "& .MuiInputLabel-root": { color: palette.text.secondary },
@@ -182,7 +179,8 @@ const Form = () => {
                   name="occupation"
                   error={Boolean(touched.occupation) && Boolean(errors.occupation)}
                   helperText={touched.occupation && errors.occupation}
-                  sx={{ gridColumn: "span 4" ,
+                  sx={{
+                    gridColumn: "span 4",
                     "& input": { color: palette.text.primary },
                     "& fieldset": { borderColor: palette.divider },
                     "& .MuiInputLabel-root": { color: palette.text.secondary },
@@ -229,11 +227,12 @@ const Form = () => {
               name="email"
               error={Boolean(touched.email) && Boolean(errors.email)}
               helperText={touched.email && errors.email}
-              sx={{ gridColumn: "span 4",
+              sx={{
+                gridColumn: "span 4",
                 "& input": { color: palette.text.primary },
                 "& fieldset": { borderColor: palette.divider },
                 "& .MuiInputLabel-root": { color: palette.text.secondary },
-               }}
+              }}
             />
             <TextField
               label="Password"
@@ -244,11 +243,12 @@ const Form = () => {
               name="password"
               error={Boolean(touched.password) && Boolean(errors.password)}
               helperText={touched.password && errors.password}
-              sx={{ gridColumn: "span 4",
+              sx={{
+                gridColumn: "span 4",
                 "& input": { color: palette.text.primary },
                 "& fieldset": { borderColor: palette.divider },
                 "& .MuiInputLabel-root": { color: palette.text.secondary },
-               }}
+              }}
             />
           </Box>
 
@@ -279,13 +279,10 @@ const Form = () => {
                 resetForm();
               }}
               sx={{
-                textDecoration: "underline",
+                textAlign: "center",
                 color: palette.primary.main,
-                fontWeight: "bold",
-                "&:hover": {
-                  cursor: "pointer",
-                  color: palette.primary.main,
-                },
+                cursor: "pointer",
+                "&:hover": { textDecoration: "underline" },
               }}
             >
               {isLogin

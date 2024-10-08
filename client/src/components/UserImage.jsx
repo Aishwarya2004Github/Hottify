@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://hottify.onrender.comassets/${image}`}
+        src={`https://hottify.onrender.com/assets/${image}`}
       />
     </Box>
   );
