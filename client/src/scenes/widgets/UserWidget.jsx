@@ -37,7 +37,7 @@ const UserWidget = ({ userId, picturePath }) => {
 
   const getUser = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/users/${userId}`, {
+      const response = await fetch(`https://hottify.onrender.com/users/${userId}`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -88,7 +88,7 @@ const UserWidget = ({ userId, picturePath }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/users/${userId}`, {
+      const response = await fetch(`https://hottify.onrender.com/users/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

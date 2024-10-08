@@ -30,7 +30,7 @@ const AdvertWidget = () => {
         width="100%"
         height="auto"
         alt="advert"
-        src="http://localhost:5000/assets/spon.png"
+        src="https://hottify.onrender.com/assets/spon.png"
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>

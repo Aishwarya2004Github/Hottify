@@ -38,7 +38,7 @@ const PostWidget = ({
 
   const handleLike = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/posts/${postId}/like`, {
+      const response = await fetch(`https://hottify.onrender.com/posts/${postId}/like`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const PostWidget = ({
             zIndex: 1000,
             border: `1px solid ${borderColor}`,
           }}
-          src={`http://localhost:5000/assets/${picturePath}`}
+          src={`https://hottify.onrender.com/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt="0.5rem">
