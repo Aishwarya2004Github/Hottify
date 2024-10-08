@@ -26,9 +26,9 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     };
 
     if (isProfile) {
-      fetchPosts(`https://hottify.onrender.com/posts/${userId}/posts`);
+      fetchPosts(`https://hottify.onrender.composts/${userId}/posts`);
     } else {
-      fetchPosts("https://hottify.onrender.com/posts");
+      fetchPosts("https://hottify.onrender.composts");
     }
   }, [isProfile, userId, token, dispatch]); // Dependencies include token and dispatch
 

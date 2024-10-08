@@ -13,7 +13,7 @@ const FriendListWidget = ({ userId }) => {
 
   const getFriends = async () => {
     const response = await fetch(
-      `https://hottify.onrender.com/users/${userId}/friends`,
+      `https://hottify.onrender.comusers/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
